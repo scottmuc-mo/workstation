@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+set -e
+set -u
+
+# from https://stackoverflow.com/a/246128
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+main() {
+  symlink_all_the_things
+  set_clock_format
+  set_dock_preferences
+  invoke_homebrew
+}
+
+# I am getting the absolute path so that ls -la output goes from:
+#
+#   .config -> /Users/spring/workspace/infrastructure/homedirs/osx/bin/../dotfiles/dot.config
+# to
+#   .config -> /Users/spring/workspace/infrastructure/homedirs/osx/dotfiles/dot.config
+symlink_all_the_things() {
+  local homedir_source common_source dotfiles_dir common_dotfiles_dir
+  homedir_source=$(cd "${DIR}/"; pwd)
+  dotfiles_dir="${homedir_source}/dotfiles"
+
+  # I don't know how to do this command in a 1 line indempotent way. Repeated executions
+  # but symlinks within the symlink.
+  if [[ ! -d ~/.config ]]; then
+    mkdir ~/.config
+  fi
+
+  ln -sfv "${dotfiles_dir}/dot.githelpers" ~/.githelpers
+  ln -sfv "${dotfiles_dir}/dot.tmux.conf" ~/.tmux.conf
+  ln -sfv "${dotfiles_dir}/dot.gitconfig" ~/.gitconfig
+  ln -sfv "${dotfiles_dir}/dot.mrconfig" ~/.mrconfig
+
+  # https://ss64.com/osx/ln.html the -h is important to not put a symlink in a dir symlink
+  ln -shfv "${dotfiles_dir}/dot.config/nvim" ~/.config/nvim
+  ln -shfv "${dotfiles_dir}/dot.config/alacritty" ~/.config/alacritty
+
+  ln -sfv "${dotfiles_dir}/dot.zshrc" ~/.zshrc
+}
+
+# Instruction manual:
+#   https://www.tech-otaku.com/mac/setting-the-date-and-time-format-for-the-macos-menu-bar-clock-using-terminal/
+set_clock_format() {
+  defaults write "com.apple.menuextra.clock" "DateFormat" -string "MMM d  HH:mm:ss"
+  killall SystemUIServer
+}
+
+set_dock_preferences() {
+  defaults write "com.apple.dock" "orientation" -string "left"
+  defaults write "com.apple.dock" "autohide" -bool "true"
+  # clears all the stuff I don't need or want
+  defaults write "com.apple.dock" "persistent-apps" -array
+  killall Dock
+}
+
+invoke_homebrew() {
+  if [ ! -x /opt/homebrew/bin/brew ]
+  then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  else
+    brew update || true
+  fi
+
+  brew bundle --file=./Brewfile
+}
+
+main
