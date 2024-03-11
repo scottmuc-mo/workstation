@@ -16,3 +16,4 @@ brew 'tree'
 cask 'rectangle'
 cask 'tandem'
 cask 'alacritty', args: { no_quarantine: true }
+cask '1password-cli'
