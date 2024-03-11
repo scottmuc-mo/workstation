@@ -33,6 +33,8 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 
 export EDITOR="nvim"
 
+alias kvim='NVIM_APPNAME="nvim-kickstart" nvim'
+
 # Why not `alias vim=nvim`? Rather that having the redirection, I would rather
 # develop the muscle memory to type nvim.
 alias vim="echo woopsy, you probably meant nvim, right?"

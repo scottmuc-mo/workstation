@@ -12,6 +12,13 @@ main() {
   set_dock_preferences
   invoke_homebrew
   install_nix
+  install_neovim_kickstart
+}
+
+install_neovim_kickstart() {
+  if [[ ! -d ~/.config/nvim-kickstart ]]; then
+    git clone https://github.com/nvim-lua/kickstart.nvim.git ~/.config/nvim-kickstart
+  fi
 }
 
 install_nix() {
