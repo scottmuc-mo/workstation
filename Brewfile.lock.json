@@ -347,6 +347,12 @@
         "options": {
           "full_name": "1password-cli"
         }
+      },
+      "google-cloud-sdk": {
+        "version": "467.0.0",
+        "options": {
+          "full_name": "google-cloud-sdk"
+        }
       }
     }
   },

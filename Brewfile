@@ -14,7 +14,8 @@ brew 'node'
 brew 'tmux'
 brew 'tree'
 
+cask '1password-cli'
+cask 'alacritty', args: { no_quarantine: true }
+cask 'google-cloud-sdk'
 cask 'rectangle'
 cask 'tandem'
-cask 'alacritty', args: { no_quarantine: true }
-cask '1password-cli'
