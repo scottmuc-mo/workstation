@@ -46,3 +46,7 @@ PS1="%{$fg[yellow]%}%~ %{$reset_color%}%\? "
 if [ -f /opt/homebrew/etc/profile.d/autojump.sh ]; then
   source /opt/homebrew/etc/profile.d/autojump.sh
 fi
+
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi

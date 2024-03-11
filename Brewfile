@@ -7,6 +7,7 @@ cask 'font-roboto-mono-nerd-font'
 cask 'font-inconsolata-nerd-font'
 
 brew 'autojump'
+brew 'direnv'
 brew 'jq'
 brew 'mr'
 brew 'node'
