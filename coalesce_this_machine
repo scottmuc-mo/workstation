@@ -10,6 +10,7 @@ main() {
   symlink_all_the_things
   set_clock_format
   set_dock_preferences
+  disable_ipv6
   invoke_homebrew
   install_nix
   install_neovim_kickstart
@@ -83,6 +84,10 @@ invoke_homebrew() {
   fi
 
   brew bundle --file=./Brewfile
+}
+
+disable_ipv6() {
+  sudo networksetup -setv6off "Wi-Fi"
 }
 
 main
