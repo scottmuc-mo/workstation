@@ -16,6 +16,7 @@ export TERM='xterm-256color'
 # I want colorized ls by default
 export LSCOLORS="GxFxCxDxBxEgEdabagacad"
 alias ls='ls -G'
+alias opauth='eval $(op signin)'
 
 export GREP_OPTIONS="--color"
 
@@ -37,7 +38,7 @@ alias kvim='NVIM_APPNAME="nvim-kickstart" nvim'
 
 # Why not `alias vim=nvim`? Rather that having the redirection, I would rather
 # develop the muscle memory to type nvim.
-alias vim="echo woopsy, you probably meant nvim, right?"
+alias vim="echo woopsy, you probably meant nvim or kvim, right?"
 
 autoload colors && colors
 PS1="%{$fg[yellow]%}%~ %{$reset_color%}%\? "
