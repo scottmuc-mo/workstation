@@ -11,9 +11,15 @@ main() {
   set_clock_format
   set_dock_preferences
   disable_ipv6
+  disable_click_to_show_desktop
   invoke_homebrew
   install_nix
   install_neovim_kickstart
+}
+
+# https://derflounder.wordpress.com/2023/09/26/managing-the-click-wallpaper-to-reveal-desktop-setting-in-macos-sonoma/
+disable_click_to_show_desktop() {
+  defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 }
 
 install_neovim_kickstart() {

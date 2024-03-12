@@ -5,7 +5,7 @@
         "revision": "e587b5c90456a895a11bc5ae81e5cfdde6b23dd4"
       },
       "homebrew/cask-fonts": {
-        "revision": "a2a6ae60acabdea8c98a9a4fbc78dc0d83bc6efd"
+        "revision": "2ffb58600554a5984a3d06439418a7c494a482fb"
       }
     },
     "brew": {
@@ -359,7 +359,7 @@
   "system": {
     "macos": {
       "sonoma": {
-        "HOMEBREW_VERSION": "4.2.11",
+        "HOMEBREW_VERSION": "4.2.12",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.3.0.0.1.1708646388",
