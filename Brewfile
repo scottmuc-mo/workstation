@@ -11,6 +11,7 @@ brew 'direnv'
 brew 'jq'
 brew 'mr'
 brew 'node'
+brew 'ripgrep'
 brew 'tmux'
 brew 'tree'
 
