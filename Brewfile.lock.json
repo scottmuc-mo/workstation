@@ -5,7 +5,7 @@
         "revision": "e587b5c90456a895a11bc5ae81e5cfdde6b23dd4"
       },
       "homebrew/cask-fonts": {
-        "revision": "2ffb58600554a5984a3d06439418a7c494a482fb"
+        "revision": "44a579d41aa4295a9bfa71c197e997eca9a6d72b"
       }
     },
     "brew": {
@@ -343,13 +343,13 @@
         }
       },
       "1password-cli": {
-        "version": "2.25.0",
+        "version": "2.25.1",
         "options": {
           "full_name": "1password-cli"
         }
       },
       "google-cloud-sdk": {
-        "version": "467.0.0",
+        "version": "468.0.0",
         "options": {
           "full_name": "google-cloud-sdk"
         }

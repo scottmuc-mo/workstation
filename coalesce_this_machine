@@ -14,18 +14,11 @@ main() {
   disable_click_to_show_desktop
   invoke_homebrew
   install_nix
-  install_neovim_kickstart
 }
 
 # https://derflounder.wordpress.com/2023/09/26/managing-the-click-wallpaper-to-reveal-desktop-setting-in-macos-sonoma/
 disable_click_to_show_desktop() {
   defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
-}
-
-install_neovim_kickstart() {
-  if [[ ! -d ~/.config/nvim-kickstart ]]; then
-    git clone https://github.com/nvim-lua/kickstart.nvim.git ~/.config/nvim-kickstart
-  fi
 }
 
 install_nix() {
@@ -60,7 +53,7 @@ symlink_all_the_things() {
   ln -sfv "${dotfiles_dir}/dot.mrconfig" ~/.mrconfig
 
   # https://ss64.com/osx/ln.html the -h is important to not put a symlink in a dir symlink
-  ln -shfv "${dotfiles_dir}/dot.config/nvim" ~/.config/nvim
+  ln -shfv "${dotfiles_dir}/dot.config/nvim-kickstart" ~/.config/nvim
   ln -shfv "${dotfiles_dir}/dot.config/alacritty" ~/.config/alacritty
 
   ln -sfv "${dotfiles_dir}/dot.zshrc" ~/.zshrc
